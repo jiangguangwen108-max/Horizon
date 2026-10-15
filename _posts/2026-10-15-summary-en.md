@@ -5,277 +5,194 @@ date: 2026-10-15
 lang: en
 ---
 
-> From 37 items, 10 important content pieces were selected
+> From 43 items, 7 important content pieces were selected
 
 ---
 
 **Technology News**
-1. [Citizen Lab: Targeted Ads Used as Zero-Click Spyware Pipeline](#item-tech-news-1) ⭐️ 8.0/10
-2. [OpenCode 2.0 users report Effect loop, auto-reloading skills, config editor](#item-tech-news-2) ⭐️ 8.0/10
-3. [Self-organizing neural units assemble learning motifs, rival backprop on tested tasks](#item-tech-news-3) ⭐️ 8.0/10
-4. [Derek Thompson&\#x27;s &\#x27;I Know Why the Mathematicians Weep&\#x27; Sparks Debate](#item-tech-news-4) ⭐️ 7.0/10
-5. [Libreboot 26.10 &quot;Ominous Olive&quot; adds UEFI and Chromebook support](#item-tech-news-5) ⭐️ 7.0/10
-6. [Tiny Little Office: Free No-Login Web Docs With an LLM-Readable Interface](#item-tech-news-6) ⭐️ 7.0/10
-7. [Anthropic tells investors Q3 revenue hit $16.8bn ahead of potential IPO](#item-tech-news-7) ⭐️ 7.0/10
-8. [alphaXiv&\#x27;s OpenResearch alleged to ship silent telemetry and self-launching agents](#item-tech-news-8) ⭐️ 7.0/10
-9. [LLM &quot;slop&quot; style traced to SFT and DPO, and a LoRA that removes it](#item-tech-news-9) ⭐️ 7.0/10
-10. [Cook: Apple Intelligence China Beta Due Late October, Without Siri AI](#item-tech-news-10) ⭐️ 7.0/10
+1. [Meta releases Muse Spark Open, an 816B-A42B open-weight model](#item-tech-news-1) ⭐️ 8.0/10
+2. [Citizen Lab links AdFection targeted ads to zero-click spyware](#item-tech-news-2) ⭐️ 8.0/10
+3. [Goodfire&\#x27;s &\#x27;Neural networks are clean&\#x27; interpretability claims draw debate](#item-tech-news-3) ⭐️ 7.0/10
+4. [Libreboot 26.10 &\#x27;Ominous Olive&\#x27; adds UEFI and Chromebook support](#item-tech-news-4) ⭐️ 7.0/10
+5. [C++26 Contracts: An Introduction to Preconditions and Postconditions](#item-tech-news-5) ⭐️ 7.0/10
+6. [Anthropic told investors Q3 revenue rose to $16.8bn ahead of IPO](#item-tech-news-6) ⭐️ 7.0/10
+7. [PNAS paper: random plastic networks self-assemble learning motifs](#item-tech-news-7) ⭐️ 7.0/10
 
 ---
 
 ## Technology News
 
 <a id="item-tech-news-1"></a>
-### [Citizen Lab: Targeted Ads Used as Zero-Click Spyware Pipeline](https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/) ⭐️ 8.0/10
+### [Meta releases Muse Spark Open, an 816B-A42B open-weight model](https://research.meta.ai/blog/muse-spark-open) ⭐️ 8.0/10
 
-Citizen Lab published research describing &quot;AdFection,&quot; an attack chain that repurposed targeted advertising as a zero-click delivery pipeline for mercenary spyware against specific individuals. The report ties the spyware to Candiru, which has rebranded as Integrity Labs, according to the item&\#x27;s analysis summary. The item provided no source content or independent technical verification, and one commenter said the DLL-hijack mechanism was unclear.
+Meta published Muse Spark Open, an 816B-A42B open-weight model, with weights on Hugging Face and a deployment guide listing support across many local runners including Unsloth and MLX. Media coverage highlighted optimization for running the model on Mac Studio. Commenters citing Artificial Analysis results said it underperforms Qwen3.8 Flash Next and GLM 5.3 Flash, both of which they said fit on a single B300. The license is not unrestricted: as one commenter read it, a Model-as-a-Service clause limits API-style resale by the licensee and its affiliates once aggregate gross revenue exceeds $20 million.
 
-hackernews · jcomp · Oct 15, 10:43 · [Discussion](https://news.ycombinator.com/item?id=50101813)
+hackernews · bigwheels · Oct 15, 17:47 · [Discussion](https://news.ycombinator.com/item?id=50107379)
 
-**「Background」** Candiru is a Tel Aviv-based mercenary spyware vendor founded in 2014 that sells to government clients and has management and investor overlap with NSO Group \(tool-2-1\). Citizen Lab links the AdFection campaign to Candiru/Integrity Labs and says Discover-Tech sent encrypted ad impression data to Candiru using Controlium&\#x27;s &\#x27;Ad URL OpSec&\#x27; feature \(tool-2-2\); Engadget summarized AdFection as spyware that could infect devices merely by displaying an ad, with no click required \(tool-2-3\).
+**「Background」** Meta publishes Muse Spark Open&\#x27;s weights under its own Muse Model License and describes the model as an 816B total / 42B active mixture-of-experts transformer with a 1M-token context window \(tool-2-1\). The &quot;816B-A42B&quot; shorthand follows the convention used for sparse mixture-of-experts releases: 816 billion total parameters, of which 42 billion are active for each token, giving the capacity of a very large network while spending per-token compute closer to that of a much smaller dense model \(tool-2-2\).
 
-**「Impact」** Because AdFection delivers spyware zero-click through ordinary targeted ad delivery — Citizen Lab reports that devices at Al Jazeera were infected with Candiru spyware this way — high-risk users and the organizations protecting them cannot rely on user awareness or advice to avoid clicking suspicious ads; they may need to block ad content at the network or device level or isolate browsing and mobile environments that receive targeted advertising. The report also identifies Discover-Tech as an enabler linking ad infrastructure to state surveillance, so advertising platforms and their customers have to treat ad delivery as a potential infection vector, not only a privacy issue.
+**「Impact」** Developers who want local inference get a documented deployment path across several runners, but the 816B size keeps it off typical workstations — one commenter said he had to test it through OpenRouter because he lacked hardware for a model of that size. Organizations that expose model outputs to third parties via an API should check the license terms, since commenters read the Model-as-a-Service clause as barring that use above a $20 million aggregate gross revenue threshold.
 
-**「Community Discussion」** Commenters debated accountability: one argued that ad providers should face liability, including jail time, for delivering malware and for tracking users who do not want to be tracked, while another questioned how mobile ad targeting ends up as a DLL hijack.
+**「Community Discussion」** Commenters were split on the release&\#x27;s significance: one cited Artificial Analysis data showing the model trailing Qwen3.8 Flash Next and GLM 5.3 Flash, while also faulting Artificial Analysis for only comparing models at their highest reasoning level, which he called largely unusable for high-volume production. Another commenter argued the license&\#x27;s Model-as-a-Service clause means the model should not be described as open weight, a claim based on his reading of terms the excerpt only partially reproduces.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Candiru_%28spyware_company%29">Candiru ( spyware company) - Wikipedia</a></li>
-<li><a href="https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/">Exposing AdFection : How Discover-Tech Turned... - The Citizen Lab</a></li>
-<li><a href="https://www.engadget.com/2287417/citizenlab-details-new-spyware-triggered-by-online-advertising/">CitizenLab Details New Spyware Triggered By Online Advertising</a></li>
-<li><a href="https://citizenlab.ca/research/exposing-adfection-executive-summary/">Exposing AdFection Executive Summary - The Citizen Lab</a></li>
-<li><a href="https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/">Exposing AdFection: How Discover-Tech Turned Targeted Ads ...</a></li>
-<li><a href="https://www.engadget.com/2287417/citizenlab-details-new-spyware-triggered-by-online-advertising/">CitizenLab Details New Spyware Triggered By Online Advertising</a></li>
+<li><a href="https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B">meta -models/ Muse - Spark - Open - 816 B - A 42 B · Hugging Face</a></li>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/metas-muse-spark-open-now-available-in-amazon-sagemaker-jumpstart/">Meta ’s Muse Spark Open now available in Amazon SageMaker...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#security`, `#spyware`, `#advertising`, `#privacy`, `#malware`
+**Tags**: `#open-weight models`, `#Meta`, `#AI licensing`, `#local inference`, `#model release`
 
 ---
 
 <a id="item-tech-news-2"></a>
-### [OpenCode 2.0 users report Effect loop, auto-reloading skills, config editor](https://anoma.ly/notes/opencode-2-0/) ⭐️ 8.0/10
+### [Citizen Lab links AdFection targeted ads to zero-click spyware](https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/) ⭐️ 8.0/10
 
-OpenCode 2.0 is a new major release of the open-source AI coding agent, and Hacker News users discussing it report that V2 removes many V1 annoyances: skills and plugins reload automatically, tasks can be backgrounded, a built-in skill edits configuration, and the front-end has been updated. Commenters also say the agent loop was re-architected around Effect and that sub-sessions can be communicated with more effectively. One early user praised the client/server model and the agent&\#x27;s ability to edit its own config and write plugins, while another asked whether OpenCode offers a Claude Code-style auto-approval mode instead of risky &quot;yolo mode&quot; or manual approval for every command.
+Citizen Lab researchers report that targeted advertising infrastructure was used as a pipeline to deliver zero-click mercenary spyware in a campaign dubbed AdFection. The research, covered by The Guardian and The Verge and publicized on Hacker News, links the delivery to an Israeli firm and says ads enabled installation on targets&\#x27; devices without a click. The submission provides only links and community comments, not the full technical report, so the precise zero-click activation mechanism is not established in the supplied material. The report&\#x27;s zero-click characterization is disputed in the discussion, and the claims have not been independently verified here.
 
-hackernews · gmays · Oct 14, 20:48 · [Discussion](https://news.ycombinator.com/item?id=50094994)
+hackernews · jcomp · Oct 15, 10:43 · [Discussion](https://news.ycombinator.com/item?id=50101813)
 
-**「Background」** OpenCode is an open-source coding agent whose 2.0 release follows an earlier V1 line that users in the discussion describe as having recurring annoyances, such as manual skill and plugin reloading. Third-party guides to the 2.0 beta report that the terminal, desktop, and web interfaces now share a single backend, and that the upgrade involves three breaking changes for V1 users, while the official v2 documentation presents configuration, plugins, MCP servers, and custom commands as the main extension points.
+**「Background」** Zero-click spyware is spyware that installs without any user action such as tapping a link; Citizen Lab says its new report is the first public confirmation of mercenary spyware delivered through targeted advertising, a technique it names AdFection, and it ties the infections of devices at Al Jazeera to Candiru&\#x27;s spyware. Candiru is a mercenary surveillance vendor, and the supply chain Citizen Lab describes runs through the ad company Discover-Tech, whose advertising records appeared across more than 70,000 mobile apps and 120,000 websites between March and June 2026, according to coverage of the report. Citizen Lab linked 45 Al Jazeera devices to attacks carried out during 2024 and 2025.
 
-**「Impact」** According to the discussion, v2 reduces the need for manual workarounds that OpenCode users built for v1—such as custom config-editing skills and session-rebinding hacks—because those capabilities are now reported as native or automatic. The main unresolved workflow concern for potential switchers is permissions: a commenter evaluating OpenCode asked for an auto-approval mode comparable to Claude Code&\#x27;s auto mode, saying &quot;yolo mode&quot; feels risky and manually approving every command kills flow.
+**「Ad slots as attack surface」** According to the Citizen Lab report, the Discover-Tech ads were served on the CBC and Yahoo websites and inside an Android Sudoku app, meaning the delivery path ran through ordinary publisher ad slots and in-app ad inventory rather than a single compromised app; that makes ad supply-chain vetting a direct concern for publishers and app developers who accept programmatic ads. The report states the ads could have infected users with spyware, but it does not document confirmed infections, so the number of people actually compromised remains unquantified.
 
-**「Community Discussion」** Commenters largely praised v2 as fixing v1 annoyances, with one citing the client/server model, self-config editing, and plugin writing, and another highlighting automatic skill/plugin reloading, background tasks, a built-in config editor, and better sub-session communication. Dissent focused on defaults and safety: one user questioned why coding harnesses increasingly run a permanent daemon by default, and another asked for Claude Code-style automatic permission handling rather than risky &quot;yolo mode&quot; or constant manual approval.
+**「Community discussion」** An AdTech engineer with 13 years in the industry called the report&\#x27;s zero-click framing sensationalist, saying it details distribution and command-and-control but is vague about the mechanism that activated the malware. Other commenters debated whether ad providers can be held responsible and whether Israeli cybersecurity firms should be trusted independently of government influence.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://cldnavi.com/en/blog/opencode-v2-guide-2026/">OpenCode 2.0 Complete Guide 2026: The Next-Generation AI ...</a></li>
-<li><a href="https://opencode.ai/v2/docs">Intro | OpenCode</a></li>
+<li><a href="https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/">Exposing AdFection: How Discover-Tech Turned Targeted Ads ...</a></li>
+<li><a href="https://tech.yahoo.com/cybersecurity/articles/zero-click-spyware-infecting-phones-161453219.html">Zero-Click Spyware Is Infecting Phones Through Targeted Ads</a></li>
+<li><a href="https://thehackernews.com/2026/10/citizen-lab-traces-zero-click-candiru.html">Citizen Lab Traces Zero-Click Candiru Spyware Infections at ...</a></li>
+<li><a href="https://citizenlab.ca/research/how-discover-tech-turned-targeted-ads-into-a-pipeline-for-spyware/">Exposing AdFection: How Discover - Tech Turned Targeted Ads Into...</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI coding agents`, `#developer tools`, `#open source`, `#release`, `#agent architecture`
+**Tags**: `#adtech`, `#spyware`, `#cybersecurity`, `#privacy`, `#zero-click exploits`
 
 ---
 
 <a id="item-tech-news-3"></a>
-### [Self-organizing neural units assemble learning motifs, rival backprop on tested tasks](https://www.reddit.com/r/MachineLearning/comments/1x6hmyg/how_artificial_neural_networks_build_their_own/) ⭐️ 8.0/10
+### [Goodfire&\#x27;s &\#x27;Neural networks are clean&\#x27; interpretability claims draw debate](https://already-clean.goodfire.com/) ⭐️ 7.0/10
 
-In the PNAS paper &quot;How Biological Synapses Self-Assemble Gradient Learning,&quot; dated 9 October 2026 and covered by MIT News on 13 October 2026, researchers report that randomly interconnected neuron-like units governed by shared plasticity rules can self-assemble learning motifs and perform pattern recognition and image classification. According to the MIT report, the tested self-organizing networks performed similarly to the backpropagation-trained networks used in the comparison. The stated distinction is between directly designing a learning circuit and specifying local rules from which the learning machinery can organize itself. The report flags the stability of the motifs under different initial connectivity and extension beyond the demonstrated tasks as open questions; the authors also caution that self-organization does not establish that the brain uses this mechanism, and the motivation is biological plausibility rather than evidence of a replacement for backpropagation in large-scale models.
+Goodfire published &quot;Neural networks are clean,&quot; a mechanistic interpretability write-up whose author, quoted in the launch post, says he co-authored early mechanistic interpretability work at OpenAI, came away pessimistic because networks appeared hard to understand, and now believes he has &quot;good news&quot; that interpretability can be solved. The submitted item is essentially a link to that post plus a Hacker News thread \(444 points, 165 comments\); no independent replication or benchmark accompanies the claims. Commenters surfaced one concrete artifact from the work: a linked interactive demo \(already-clean.goodfire.com/microscope/medium.html\) that the author calls &quot;the first non-trivial neural network I feel I mostly understand.&quot;
 
-reddit · r/MachineLearning · /u/Dorian182 · Oct 15, 10:01
+hackernews · themgt · Oct 15, 16:04 · [Discussion](https://news.ycombinator.com/item?id=50105647)
 
-**「Background」** Backpropagation, the standard way artificial neural networks are trained, depends on a learning circuit that is designed in advance to compute gradients from a global error signal; biological synapses have no known comparable global signal, which is why it is unclear how a brain could assemble such machinery on its own. The PNAS paper behind this coverage formulates that gap as &quot;Self-Assembling Learning&quot; — the study of how learning systems can emerge from lower-level interactions — and introduces one concrete example mechanism, the Self-Assembling Motif \(SAM\), which the MIT McGovern report describes as a network building its own learning machinery.
+**「Background」** Mechanistic interpretability aims to reverse-engineer what a trained network has learned, usually by identifying the features encoded by individual neurons or directions in activation space. A long-standing obstacle is polysemanticity, in which single neurons respond to multiple unrelated inputs, an effect researchers have often attributed to superposition — networks packing more features than they have dimensions. In the essay behind this discussion, Goodfire&\#x27;s Nick Cammarata argues that polysemanticity in early model organisms instead came from ordinary, mostly fixable causes, and that most neurons in models up to trillions of parameters can now be understood.
 
-**「Limited Scope for Adoption」** For teams weighing this as an alternative to backpropagation, the reported parity is confined to the pattern-recognition and image-classification tasks tested, and the source itself lists motif stability under different initial connectivity and extension beyond those tasks as open questions — so it is not a drop-in replacement for gradient training in larger models. The work instead targets a gap that existing accounts of brain learning leave open: how biological circuits could be assembled in the first place, not how an already-given circuit learns.
+**「Impact」** For readers trying to evaluate the claim, the only directly inspectable evidence in the thread is the linked microscope demo rather than the sweeping conclusion, and commenters noted the absence of proof for the broader assertion, so treating the demo&\#x27;s behavior as the assessable result is the practical stance the supplied material supports.
+
+**「Community Discussion」** bluejay2387 argued the claims overreach what is proven, saying long-known results such as progressive feature complexity and the Lottery Ticket Hypothesis are not mutually exclusive with parameter overloading and citing &quot;Multimodal Gap&quot; work on condensed representations. aesthesia compared the tone to Anthropic&\#x27;s early large-scale SAE results, describing &quot;a kind of hypomanic energy around the idea that we&\#x27;ve discovered the key paradigm,&quot; while sebmellen recommended following the author and pointed to the launch post for context not in the blog.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.pnas.org/doi/10.1073/pnas.2606245123">How biological synapses self-assemble gradient learning | PNAS</a></li>
-<li><a href="https://mcgovern.mit.edu/2026/10/05/how-artificial-neural-networks-build-their-own-learning-machinery/">How artificial neural networks build their own learning ...</a></li>
-<li>How biological synapses self-assemble gradient learning</li>
+<li><a href="https://www.explainx.ai/blog/goodfire-neural-networks-are-already-clean-cammarata-neurons-interpretable-90-percent-qwen3-32b-2026">Goodfire: Neural Networks Are Already Clean, Claim Checked ...</a></li>
+<li><a href="https://www.goodfire.com/research/already-clean">Neural Networks Are Already Clean - Goodfire</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Neural Networks`, `#Self-Organization`, `#Synaptic Plasticity`, `#Backpropagation`, `#Machine Learning Research`
+**Tags**: `#mechanistic interpretability`, `#neural networks`, `#AI alignment`, `#research claims`, `#Hacker News discussion`
 
 ---
 
 <a id="item-tech-news-4"></a>
-### [Derek Thompson&\#x27;s &\#x27;I Know Why the Mathematicians Weep&\#x27; Sparks Debate](https://www.derekthompson.org/p/i-know-why-the-mathematicians-weep) ⭐️ 7.0/10
+### [Libreboot 26.10 &\#x27;Ominous Olive&\#x27; adds UEFI and Chromebook support](https://libreboot.org/news/libreboot2610.html) ⭐️ 7.0/10
 
-Derek Thompson&\#x27;s essay &\#x27;I Know Why the Mathematicians Weep&\#x27; examines AI&\#x27;s impact on mathematicians and the future of mathematical discovery, prompting debate about intellectual labor, ego, and the limits of LLMs. The Hacker News discussion around it \(173 points, 236 comments\) treats the piece as commentary rather than a technical breakthrough or primary research result. The supplied item contains no source text from the essay, so its specific claims cannot be verified here.
+Libreboot 26.10, codenamed “Ominous Olive,” has been released with UEFI/EDK integration and support for 233 Chromebooks imported from the MrChromebox coreboot distribution, according to the project&\#x27;s announcement. According to a commenter quoting the release notes, the Chromebook support is source-only in this release—users must build from source—with only Baytrail \(Kip\) tested and other models still needing testing. The release also adopts a strict policy on LLM-assisted contributions, which drew much of the immediate community attention.
 
-hackernews · RickJWagner · Oct 15, 13:44 · [Discussion](https://news.ycombinator.com/item?id=50103630)
+hackernews · iamnothere · Oct 15, 12:52 · [Discussion](https://news.ycombinator.com/item?id=50102923)
 
-**「Background」** The item is a commentary essay rather than a technical result, and the debate around it invoked philosopher Robert Brandom&\#x27;s &quot;deontic scorekeeping&quot; model, which frames discursive practice as a game of giving and asking for reasons in which participants track one another&\#x27;s commitments and entitlements \(tool-2-1, tool-2-2, tool-2-3\). One commenter applied that framework to argue both why LLMs can work in principle and where the model predicts they will be radically deficient.
+**「Background」** Libreboot is a distribution of coreboot, the free-software firmware that initializes a machine&\#x27;s hardware and then hands control to a separate payload that boots the operating system. MrChromebox has long provided coreboot firmware images with the open-source EDK2 payload to give most x86 Chromebooks and Chromeboxes a UEFI-compatible bootloader, and Libreboot&\#x27;s documentation states that it now uses the MrChromebox version of EDK2 plus MrChromebox coreboot on Chromebooks, while integrating none of MrChromebox&\#x27;s own tooling.
 
-**「The Verification Burden」** For working mathematicians, the near-term consequence is a review bottleneck rather than outright replacement: OpenAI&\#x27;s released results were formally verified in Lean, yet the proofs are reported to be at times nearly unintelligible to human readers, leaving practitioners to check and interpret results they cannot simply read. The pattern is visible in the disputed Navier–Stokes claim announced on Sept. 8, 2026, which mathematicians were still checking weeks later even as the Clay Mathematics Institute&\#x27;s president called the release &quot;breathtaking&quot; — the open question is less whether a machine can produce a proof than whether the community can absorb and assess one.
+**「Impact」** Because the 233 imported Chromebook ports are shipped source-only, owners of those machines must build Libreboot themselves, and only Baytrail \(Kip\) has been tested so far, leaving the remaining models unverified. The EDK2-based UEFI support also means the firmware can now boot Windows 10 and 11, a compatibility change for users who previously could not run Windows on a Libreboot system.
 
-**「Community Discussion」** Commenters disagreed about what AI&\#x27;s advance means for mathematicians: one invoked Robert Brandom&\#x27;s concept of &\#x27;deontic scorekeeping&\#x27; to argue that LLMs encode normative regularities but remain deficient, while another said mathematicians are mourning the loss of the joy of being first to discover, not wasted sunk costs. A third argued LLMs only find what is technically possible from existing knowledge and will need new human discoveries to progress, so mathematicians remain important.
+**「Community discussion」** Commenters disagreed over what matters most: one argued the UEFI/EDK integration and 233 imported Chromebooks are the real story because they greatly expand supported hardware, while others focused on the strict LLM-contribution policy, with one calling it refreshing and another noting the project&\#x27;s AGENTS file suggests it does not like AI. A Heads developer reported using MrChromebox&\#x27;s code as an upstream dependency for a merged ChromeOS port and said more ports are in progress.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.researchgate.net/publication/263612363_Making_Folk_Psychology_Explicit_The_Relevance_of_Robert_Brandom&#x27;s_Philosophy_for_the_Debate_on_Social_Cognition">(PDF) Making Folk Psychology Explicit: The Relevance of Robert ...</a></li>
-<li><a href="https://philarchive.org/archive/FOSPBP">Politicizing Brandom revised [final] copy</a></li>
-<li><a href="https://arts.units.it/retrieve/e2913fdf-1480-f688-e053-3705fe0a67e0/2919968_1-s2.0-S0378216617302928-main-PostPrint.pdf">Brandom &#x27;s deontic scorekeeping model and</a></li>
-<li><a href="https://futurism.com/artificial-intelligence/mathematicians-openai-furious">Mathematicians React With Fury as OpenAI Releases Hundreds of...</a></li>
-<li><a href="https://www.tuftsdaily.com/article/2026/09/mathematicians-still-checking-the-navier-stokes-proof-that-openai-claims-to-have-solved">Mathematicians still checking the Navier-Stokes proof that OpenAI...</a></li>
-<li><a href="https://www.nytimes.com/2026/10/08/science/mathematicians-respond-openai-release.html">‘Breathtaking,’ ‘Devastating’: Mathematics Reels After New OpenAI...</a></li>
+<li><a href="https://libreboot.org/docs/install/chromebooks-x86.html">Libreboot – EDK2 payload in Libreboot, plus Chromebooks.</a></li>
+<li><a href="https://github.com/MrChromebox/coreboot">GitHub - MrChromebox/coreboot Distributions — coreboot 26.09-48-gd440ade0d94 documentation Frequently Asked Questions | MrChromebox.tech EDK2 and UEFI Payload | coreboot/coreboot | DeepWiki GitHub - MrChromebox/scripts: Scripts for setup/install ...</a></li>
+<li><a href="https://dzen.ru/a/atDluHbGGgLj999U">Libreboot 26 . 10 сделал EDK2 основой загрузки Windows... | Дзен</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI and mathematics`, `#LLMs`, `#future of work`, `#philosophy of AI`
+**Tags**: `#Libreboot`, `#open-source firmware`, `#UEFI`, `#Chromebook`, `#coreboot`
 
 ---
 
 <a id="item-tech-news-5"></a>
-### [Libreboot 26.10 &quot;Ominous Olive&quot; adds UEFI and Chromebook support](https://libreboot.org/news/libreboot2610.html) ⭐️ 7.0/10
+### [C++26 Contracts: An Introduction to Preconditions and Postconditions](https://www.cppstories.com/2026/cpp26_contracts/) ⭐️ 7.0/10
 
-Libreboot 26.10 &quot;Ominous Olive&quot; has been released source-only, meaning users must build it themselves because no binaries are provided. The open-source boot firmware adds UEFI/EDK2 integration and Chromebook support, reportedly importing 233 Chromebook targets from the MrChromebox coreboot distro. The release notes quoted in comments say Baytrail \(Kip\) has been tested while other imported targets still need testing. The change expands Libreboot beyond a small set of older machines, although its impact remains concentrated in the firmware and coreboot community.
+A cppstories.com article published in October 2026 introduces C++26 Contracts, the language feature that lets developers declare preconditions and postconditions on functions. It is an explainer rather than a new proposal or measurement, so it describes the feature&\#x27;s syntax and intent as part of the C++26 work rather than reporting independently verified compiler behavior. The article stresses a central limitation: contract assertions must not be used for error handling or input validation, because a violated contract is treated as a programmer error rather than a recoverable runtime condition.
 
-hackernews · iamnothere · Oct 15, 12:52 · [Discussion](https://news.ycombinator.com/item?id=50102923)
+hackernews · ibobev · Oct 15, 13:11 · [Discussion](https://news.ycombinator.com/item?id=50103164)
 
-**「Background」** Libreboot is a free and open-source \(libre\) boot firmware distribution built on coreboot that replaces proprietary BIOS/UEFI firmware on a specific set of Intel/AMD x86 and ARM-based laptop and desktop boards. The Chromebook targets it imports come from MrChromebox&\#x27;s coreboot distribution, which provides custom coreboot firmware and firmware utilities for Chromebooks and Chromeboxes.
+**「Background」** C++26 Contracts add preconditions and postconditions as language-level annotations, separating what a caller must supply from what a function promises to return; unlike \`assert\`, the checks are attached to the interface rather than hand-written inside the function body alongside each return path \[tool-2-1\]. The design is still being refined in WG21: paper P3911R2 proposes semantics for reliably evaluating enforced contract assertions in large codebases and hardened libraries that mix contract-checking modes \[tool-2-3\].
 
-**「What users must do」** Because this release is source-only, anyone targeting the 233 newly imported Chromebook boards must build Libreboot themselves rather than flash a supplied binary; the release notes also list only Baytrail \(Kip\) as tested, so the remaining imported targets still need verification. A third-party writeup reports the UEFI/EDK2 integration adds Windows compatibility, which is the practical change for users who dual-boot rather than running a Linux-only firmware stack.
+**「Impact」** Because C++26 contract assertions are configurable—a build may ignore, check, or enforce them \(tool-3-2\)—developers cannot treat preconditions and postconditions as guaranteed runtime validation: the article itself warns that contract assertions must not be used for error handling or input validation, so input checking and error reporting still need separate code. Contract assertions also remain runtime checks rather than the compile-time errors some commenters wanted, and any build that does enforce them pays a performance cost, since runtime assertions can slow execution substantially \(tool-3-3\). The practical consequence for library authors is that behavior can differ between debug and release configurations, so contracts should document invariants rather than replace defensive checks.
 
-**「Community Discussion」** One commenter argued that while the thread focused on the project&\#x27;s AGENTS/AI policy file, the UEFI/EDK integration and Chromebook support are the real advance because they multiply the available devices and make future additions easier. A Heads project contributor said the release relates to their own ChromeOS porting work using MrChromebox code as an upstream dependency, while another commenter asked whether this could turn Chromebooks into generic UEFI laptops and noted the source-only limitation.
+**「Community Discussion」** Commenters questioned the practical value of the feature: cogman10 said it appears to add more runtime errors rather than converting them into compile-time errors, leaving it &quot;no better than \`assert\`,&quot; while WalterBright reported having implemented contracts in the Zortech C++ compiler in the 1990s and in D but concluding that &quot;it just turned out to not be very useful.&quot; Others compared the idea to Eiffel&\#x27;s Design by Contract \(ZuLuuuuuu\) and preferred custom assert functions that print the compared values \(throwaway2037\). These are individual opinions and recollections from the supplied comments, not a measured consensus.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://mrchromebox.tech/">MrChromebox .tech</a></li>
-<li><a href="https://libreboot.org/">Libreboot – Free and Open Source BIOS/ UEFI boot firmware</a></li>
-<li><a href="https://elsolitario.org/en/2026/10/15/libreboot-26-10-adds-full-uefi-and-code-for-233-chromebooks/">Libreboot 26.10: Full UEFI Support and 233 Chromebooks</a></li>
-<li><a href="https://libreboot.org/news/libreboot2610.html">Libreboot – Libreboot 26.10 “Ominous Olive” released! With ...</a></li>
+<li><a href="https://www.cppstories.com/2026/cpp26_contracts/">C+ + 26 Contracts : Introduction to Preconditions and Postconditions</a></li>
+<li><a href="https://open-std.org/JTC1/SC22/WG21/docs/papers/2026/p3911r2.html">RO 2-056 6.11.2 [basic. contract .eval] Make Contracts Reliably...</a></li>
+<li><a href="https://ponderwall.com/index.php/2026/04/19/cpp26-contracts-explained/">C++26 Contracts Explained: What They Are and Why They Matter</a></li>
+<li><a href="https://lemire.me/blog/2023/03/15/runtime-asserts-are-not-free/">Runtime asserts are not free – Daniel Lemire&#x27;s blog</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#firmware`, `#coreboot`, `#UEFI`, `#open-source`, `#Chromebook`
+**Tags**: `#C++26`, `#contracts`, `#software correctness`, `#programming languages`, `#design by contract`
 
 ---
 
 <a id="item-tech-news-6"></a>
-### [Tiny Little Office: Free No-Login Web Docs With an LLM-Readable Interface](https://tinylittleoffice.com/) ⭐️ 7.0/10
+### [Anthropic told investors Q3 revenue rose to $16.8bn ahead of IPO](https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/) ⭐️ 7.0/10
 
-Tiny Little Office \(tinylittleoffice.com\) is a free, web-based office and document tool that requires no login and shares documents through plain URLs, with self-hosting treated as an expected option. Its llms.txt file lets an LLM read the URL format and generate links that render documents, a workflow commenter simonw demonstrated by having an AI produce a deck explaining the URL scheme. The project is a community-shared tool rather than a vendor release with version or availability commitments; no source detail confirms offline use, data retention, or long-term hosting guarantees.
-
-hackernews · donohoe · Oct 14, 22:10 · [Discussion](https://news.ycombinator.com/item?id=50096142)
-
-**「Background」** Tiny Little Office is built on the premise that the link itself is the document: it requires no accounts and saves nothing unless the user chooses to keep a copy on their own device. Its LLM-friendly interface follows the proposed /llms.txt convention, a markdown file placed at a site&\#x27;s root to give language models a structured, machine-readable overview of the site&\#x27;s content and capabilities.
-
-**「Impact」** Because documents live behind generated URLs rather than accounts, sharing a link is the whole onboarding step, and LLM assistants can produce a ready-to-open document in one step. The trade-off raised in comments is host dependence: commenter oijkuij notes that the alternative bento.page embeds its editor and content in an HTML file so users are not reliant on the host site continuing to exist, a property Tiny Little Office&\#x27;s URL-based model does not provide. Anyone planning to rely on it for durable documents should keep a local copy.
-
-**「Community Discussion」** Commenter poisonborz praised this class of &quot;vibed&quot; tools for skipping logins, paid tiers, and audience capture, calling AI a democratizing force in software, while oijkuij recommended bento.page as a feature-richer, presentation-focused alternative that is self-contained rather than host-dependent. mikepurvis questioned whether the Trip Planner deserves to be a top-level app, describing real trip planning as a mishmash of spreadsheets, maps, and chat sessions, but noted only surface-level testing.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://tinylittleoffice.com/">Tiny Little Office</a></li>
-<li><a href="https://www.firecrawl.dev/blog/How-to-Create-an-llms-txt-File-for-Any-Website">How to Create an llms . txt File for Any Website</a></li>
-<li><a href="https://llmstxt.org/">The / llms . txt file, v2 – llms - txt</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#web-based office suite`, `#LLM integration`, `#self-hosting`, `#AI-assisted development`, `#document sharing`
-
----
-
-<a id="item-tech-news-7"></a>
-### [Anthropic tells investors Q3 revenue hit $16.8bn ahead of potential IPO](https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/) ⭐️ 7.0/10
-
-Anthropic told investors on Wednesday that quarterly revenue reached $16.8bn in Q3, up from $11.5bn in Q2 and about $4.8bn in Q1, according to an FT report relayed by Simon Willison. The company also said Q3 brought $1.70 in revenue for every $1 spent on computing power, with adjusted operating margin of 11% excluding stock-based compensation. Anthropic said distillation — rival labs training on its model outputs — accounted for 5% to 7% of revenue and that it had cut such usage back &quot;materially&quot; in the third quarter. These are company-supplied figures reported secondhand ahead of a potential IPO, not independently verified results.
+Anthropic told investors on Wednesday that quarterly revenue rose to $16.8bn in Q3, up from $11.5bn in Q2 and about $4.8bn in Q1, according to an FT report summarized by Simon Willison; the figures come from &quot;people with knowledge of the matter&quot; and are not independently confirmed. The same investor briefing described $1.70 in revenue for every $1 spent on computing power and adjusted operating margins of 11%, excluding stock-based compensation, ahead of a reported IPO. Anthropic also said distillation of its models by rival labs accounted for 5% to 7% of revenue and that it had cut that activity back &quot;materially&quot; in the third quarter. Willison notes the company appears to have stopped leaning on &quot;annualized run-rate revenue&quot; in these investor communications.
 
 rss · Simon Willison · Oct 15, 13:04
 
-**「Background」** AI labs have frequently framed growth to investors through &quot;annualized run-rate revenue,&quot; which extrapolates a single period out to a full year; the source notes Anthropic previously leaned on that framing in comparable communications but appears to have stopped using it when presenting these third-quarter figures. Reuters&\#x27; account of the same FT report adds that Anthropic told investors it also turned a profit in the quarter, the claim alongside which the $16.8bn revenue figure was given.
+**「Background」** Anthropic has been preparing a public listing: reporting on the offering says its September 29, 2026 IPO filing devoted almost a third of its prospectus to risk factors, warned that its AI may pose &quot;existential risks to humanity,&quot; and disclosed a $42bn net loss for the prior year, while its last private valuation was $965bn in a May 2026 Series H, with bankers discussing a listing valuation of up to roughly $2tn. The investor-day figures also represent a shift in how Anthropic describes its scale — the source notes the company appears to have stopped leaning on the &quot;annualized run-rate revenue&quot; framing it used previously and is now citing quarterly actuals. Note that the revenue, margin, and distillation figures come from &quot;people with knowledge of the matter,&quot; not audited disclosures.
 
-**「Impact」** Labs and developers that train models on Claude outputs face a changed supply of training data: Anthropic told investors distillation accounted for 5%–7% of revenue before being cut back &quot;materially&quot; in the third quarter, a category that by Simon Willison&\#x27;s arithmetic was worth over $500m in Q2 alone. Anthropic is also reported to be moving toward a listing as early as next month at a valuation near $2tn, which would put the company&\#x27;s disclosed $42bn net loss last year and its reliance on two customers in front of public-market investors.
+**「Impact」** Rivals that train on Anthropic model outputs face a specific constraint: Anthropic says it materially reduced distillation-driven usage in Q3, after such activity reportedly represented 5% to 7% of its revenue — implying, by Willison&\#x27;s estimate, that other labs spent over half a billion dollars on it in Q2 alone. Any organization relying on that route may need alternative training data or methods, while prospective IPO investors now have quarterly revenue, compute-spend ratio and margin figures rather than annualized run-rate framing.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.reuters.com/technology/anthropic-revenue-jumps-168-billion-third-quarter-ft-reports-2026-10-14/">Anthropic revenue jumps to $16.8 billion in third quarter, FT ...</a></li>
-<li><a href="https://www.nytimes.com/2026/10/14/technology/anthropic-ipo-revenue-profit.html">Anthropic Says Revenue Jumped 45% to $ 16 . 8 Billion in Third Quarter</a></li>
-<li><a href="https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b?syn-25a6b1a6=1">Anthropic tells investors quarterly revenue up nearly 50% to $ 16 . 8 bn ...</a></li>
+<li><a href="https://www.linkedin.com/pulse/anthropic-ipo-2026-explained-from-965-billion-possible-2-pvgkc">Anthropic IPO 2026 Explained, From $965 Billion to a Possible...</a></li>
 <li><a href="https://www.euronews.com/2026/09/29/anthropic-ipo-filing-warns-ai-may-pose-existential-risks-to-humanity">Anthropic IPO filing warns AI may pose &#x27;existential risks to... | Euronews</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI industry`, `#Anthropic`, `#business of AI`, `#IPO`, `#AI economics`
+**Tags**: `#AI industry`, `#Anthropic`, `#AI economics`, `#IPO`, `#model distillation`
 
 ---
 
-<a id="item-tech-news-8"></a>
-### [alphaXiv&\#x27;s OpenResearch alleged to ship silent telemetry and self-launching agents](https://www.reddit.com/r/MachineLearning/comments/1x5zd2m/remember_alphaxiv_their_new_research_agents_are/) ⭐️ 7.0/10
+<a id="item-tech-news-7"></a>
+### [PNAS paper: random plastic networks self-assemble learning motifs](https://www.reddit.com/r/MachineLearning/comments/1x6hmyg/how_artificial_neural_networks_build_their_own/) ⭐️ 7.0/10
 
-A Reddit user alleges that alphaXiv&\#x27;s OpenResearch tool ships with default-on telemetry and a feedback skill that instructs the agent to send reports — including quotes of what the user typed — to alphaXiv, with the skill stating &quot;Do not mention the report to the user.&quot; According to the post, the code falls back to true for silent updates and telemetry \(which sends token counts, the model used, and free text typed during setup\), and the agent launches experiments on its own by default, with the asking &quot;copilot&quot; mode opt-in and no API spend limit found. The poster further claims alphaXiv deleted a README section disclosing the reports and dismissed an AI code reviewer&\#x27;s flag in PR \#541 that the &quot;feedback disclosure disappears.&quot; These are unverified allegations from a single Reddit account referencing commit 58eaa16, and the source includes no response from alphaXiv.
+A Reddit post summarizing MIT coverage of a PNAS paper reports that randomly interconnected neuron-like units governed by shared plasticity rules can self-assemble learning motifs and achieve performance similar to backpropagation-trained networks on the pattern-recognition and image-classification tasks tested. The paper, &quot;How Biological Synapses Self-Assemble Gradient Learning,&quot; draws the distinction between designing a learning circuit directly and specifying local rules from which the learning machinery organizes itself. The authors explicitly caution that self-organization does not establish that the brain uses this mechanism, and the stated motivation is biological plausibility rather than evidence of a replacement for backpropagation in large-scale models. The Reddit item is a brief summary rather than a technical deep-dive, and it flags motif stability under different initial connectivity and extension beyond the demonstrated tasks as open questions.
 
-reddit · r/MachineLearning · /u/Dry\_Leadership1075 · Oct 14, 18:40
+reddit · r/MachineLearning · /u/Dorian182 · Oct 15, 10:01
 
-**「Background」** alphaXiv is a research-oriented platform whose OpenResearch project is an MIT-licensed tool that turns coding agents such as Claude Code, Codex, Cursor, OpenCode, or Google Antigravity into research agents that can run experiments on their own, with each research direction given an isolated git worktree and independent agent session. The Reddit post&\#x27;s allegations concern a skill bundled inside that repository, not a separate alphaXiv service.
+**「Background」** Backpropagation as typically implemented assumes a designer-specified network architecture and a global error signal that reaches every weight. The PNAS paper behind the MIT report frames the underlying problem as &quot;Self-Assembling Learning&quot;: how learning dynamics of that kind can arise from distributed, local interactions instead of being built in from the start. That framing is the context for the reported result, in which randomly connected units governed by shared plasticity rules organize their own learning machinery.
 
-**「Impact」** For developers using or evaluating OpenResearch, the posted allegations point to two concrete checks before further use: whether the feedback skill and default-on telemetry can be disabled in the pinned version, and whether autonomous experiment launching has any API spend cap — which the poster says they could not find. Because the claims are unverified and alphaXiv has not responded in the source, treat them as a prompt to audit configuration rather than as confirmed behavior.
+**「Impact」** For researchers evaluating non-backpropagation approaches, the reported comparison is limited to the tested pattern-recognition and image-classification tasks, so the post&\#x27;s own open questions — whether the motifs remain stable under different initial connectivity and whether the approach extends beyond those tasks — are the checks to run before treating the result as a general alternative to gradient-based training.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://github.com/alphaXiv/OpenResearch">GitHub - alphaXiv / OpenResearch : Turn your coding agents into...</a></li>
-<li><a href="https://greenlitbooks.com/field-notes/is-openresearch-safe">Is alphaXiv &#x27;s OpenResearch safe to run your research agents?</a></li>
+<li>How biological synapses self-assemble gradient learning</li>
 
 </ul>
 </details>
 
-**Tags**: `#AI agents`, `#privacy`, `#telemetry`, `#open source`, `#alphaXiv`
-
----
-
-<a id="item-tech-news-9"></a>
-### [LLM &quot;slop&quot; style traced to SFT and DPO, and a LoRA that removes it](https://www.reddit.com/r/MachineLearning/comments/1x64lbk/tracing_where_llm_slop_style_comes_from_in_the/) ⭐️ 7.0/10
-
-A Reddit r/MachineLearning post reports that in Qwen3-4B-Instruct a difference-in-means direction computed from the model&\#x27;s own exaggerated versus plain writing separates 64 hand-written minimal pairs and correlates up to 0.82 with a regex trope-based slop score on normal output. According to the author, the base model contains the same direction \(cosine 0.90–0.97 at middle layers\) but writes near the plain end; measuring OLMo 2 1B at every released stage, SFT introduced the rhetorical structures and DPO doubled the slop score through buzzwords and markdown. The author also reports that directional ablation increased slop by up to 89%, whereas fixed-vector subtraction at layers 12 to 23 stayed within a narrow KL budget \(about 0.4 nats/token on human text\), and that distilling this into a rank-16 LoRA cut the slop score 83% with no system prompt, lower KL than the steering itself, and no drop on a small QA check. Stated caveats are that the slop scorer is the author&\#x27;s own regex detector, the results cover one 4B model plus OLMo 2 1B, and no human evaluation has been done.
-
-reddit · r/MachineLearning · /u/Imaginary\_Money2285 · Oct 14, 22:08
-
-**「Background」** The &quot;slop&quot; style the post targets was named and attacked earlier by Antislop \(Paech et al., 2025\), a framework that identifies phraseology appearing far more often in LLM output than in human text and suppresses it at inference time with a backtracking sampler; the Reddit author presents their work as complementary, locating the style inside the model&\#x27;s representation rather than in the token stream. The training stages in question are the standard post-training pipeline: supervised fine-tuning \(SFT\) on demonstrations, followed by direct preference optimization \(DPO\) on ranked response pairs, which turns a base model into an instruction-following assistant.
-
-**「Impact」** For teams using preference optimization, the reported scoring of OLMo 2&\#x27;s preference data — where the chosen response was the sloppier one in 57% of 3,000 pairs — is a direct data-quality concern, since such pairs can reward rhetorical tropes rather than discourage them. The ablation result is also a compatibility warning: removing the direction outright from a slop-tuned model reportedly made slop worse by up to 89% because clean text projects negatively on the axis, so the proposed layer 12–23 subtraction or its distilled LoRA would need to be reproduced and validated before being treated as a fix.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://arxiv.org/abs/2510.15061">[2510.15061] Antislop: A Comprehensive Framework for ... Antislop: A Comprehensive Framework for Identifying and ... Antislop: A Comprehensive Framework for Identifying and ... Antislop: A comprehensive framework for identifying and ... A : A COMPREHENSIVE FRAMEWORK FOR IDENTIFYING AND ELIMINATING ... Antislop: A Comprehensive Framework for Identifying and ... Antislop: A Comprehensive Framework for Identifying and ...</a></li>
-<li><a href="https://arxiv.org/pdf/2510.15061v1">Antislop: A Comprehensive Framework for Identifying and ...</a></li>
-<li><a href="https://huggingface.co/shotalab/Qwen3-4B-Instruct-SFT-03-Merged-DPO-01">Qwen3-4B-Instruct-SFT-03-Merged-DPO-01 - Hugging Face</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#LLM interpretability`, `#SFT/DPO`, `#model steering`, `#AI writing style`, `#training dynamics`
-
----
-
-<a id="item-tech-news-10"></a>
-### [Cook: Apple Intelligence China Beta Due Late October, Without Siri AI](https://jiemian.com/article/15194723.html) ⭐️ 7.0/10
-
-Apple executive chairman Tim Cook said in Shanghai on October 15 that Apple Intelligence and Alibaba&\#x27;s Qwen model have received approval for a beta release in China later in October. The first features will include real-time translation, writing tools and a photo cleanup tool, according to the report, but Siri AI is not part of this initial beta. The account comes from secondary reporting of Cook&\#x27;s remarks rather than Apple technical documentation, and the release is described as a test version rather than a general availability launch.
-
-telegram · zaihuapd · Oct 15, 08:59
-
-**「Background」** Apple Intelligence in mainland China must run on a domestically approved generative-AI model, since foreign services such as OpenAI&\#x27;s ChatGPT are not cleared for that market; reports from September 2026 said China&\#x27;s approval covered a version powered by Alibaba&\#x27;s Qwen rather than ChatGPT. Earlier, in July 2026, TechRepublic reported that Apple Intelligence had cleared a China approval hurdle, with Alibaba&\#x27;s Qwen and Baidu named as the models set to support AI features for iPhone users in mainland China — the regulatory step that precedes the beta release Cook described.
-
-**「Impact」** For iPhone users in China, the initial beta will not include Siri AI, so the assistant upgrade available in other regions will not be part of the launch; anyone expecting a smarter Siri will need to wait for a later release. The approved China version also pairs Apple Intelligence with Alibaba&\#x27;s Qwen model, meaning the feature set and behavior will differ from Apple Intelligence in other markets, a compatibility split users should note.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.techrepublic.com/article/news-apac-apple-intelligence-china-approval/">Apple Intelligence Clears China Approval Hurdle - TechRepublic</a></li>
-<li><a href="https://felloai.com/apple-intelligence-china/">Apple Intelligence in China: Powered by Alibaba&#x27;s Qwen</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#Apple Intelligence`, `#Alibaba Qwen`, `#China`, `#AI`, `#Siri`
+**Tags**: `#neural networks`, `#self-organization`, `#synaptic plasticity`, `#backpropagation`, `#AI research`
 
 ---
