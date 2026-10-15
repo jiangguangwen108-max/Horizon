@@ -66,7 +66,27 @@
     "default_group": "other",
     "default_group_limit": null
   },
-  "webhook": { "enabled": false },
-  "email": { "enabled": false },
-  "wechat": { "enabled": false }
+  "email": {
+    "enabled": false,
+    "smtp_server": "smtp.qq.com",
+    "smtp_port": 465,
+    "imap_server": "imap.qq.com",
+    "imap_port": 993,
+    "email_address": "placeholder@qq.com",
+    "sender_name": "Horizon Daily",
+    "subscribe_keyword": "SUBSCRIBE",
+    "unsubscribe_keyword": "UNSUBSCRIBE"
+  },
+  "webhook": {
+    "enabled": false,
+    "url_env": "HORIZON_WEBHOOK_URL",
+    "delivery": "summary",
+    "overview_position": "first",
+    "platform": "generic",
+    "layout": "markdown",
+    "fallback_layout": "markdown",
+    "languages": null,
+    "headers": ""
+  },
+  "wechat": { "enabled": false, "languages": null, "chunk_size": 4000 }
 }
